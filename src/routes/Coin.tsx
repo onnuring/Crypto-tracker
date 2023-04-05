@@ -157,8 +157,9 @@ const Coin = () => {
   // const [priceInfo, setPriceInfo] = useState<PriceData>();
 
   //url을 통해서 탭선택에 바로 적용시킬 수 있다
-  const priceMatch = useMatch("/:coinId/price");
-  const chartMatch = useMatch("/:coinId/chart");
+  const priceMatch = useMatch("/Crypto-tracker/:coinId/price");
+  const chartMatch = useMatch("/Crypto-tracker/:coinId/chart");
+  console.log(priceMatch);
 
   //useQuery hook 사용
   const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(
@@ -218,10 +219,10 @@ const Coin = () => {
           </Overview>
           <Tabs>
             <Tab isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`chart`}>Chart</Link>
             </Tab>
             <Tab isActive={priceMatch !== null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`price`}>Price</Link>
             </Tab>
           </Tabs>
           <Outlet context={{ coinId, tickersData }} />

@@ -39,7 +39,7 @@ const Header = () => {
     <HeaderWrap>
       <HeaderList>
         <li>
-          <Link to={"/"}>HOME</Link>
+          <Link to={"/Crypto-tracker"}>HOME</Link>
         </li>
         <li>
           <ToggleBtn onClick={toggleDarkAtom}>
