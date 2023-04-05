@@ -4,6 +4,8 @@ import Coins from "./routes/Coins";
 import App from "./App";
 import Chart from "./routes/Chart";
 import Price from "./routes/Price";
+import HomeError from "./HomeError";
+import CoinError from "./CoinError";
 
 // const Router = () => {
 //   return (
@@ -21,22 +23,27 @@ const router = createBrowserRouter([
   {
     path: "/", // 슬래시 경로를 부모로 생각하고 router를 설정한다
     element: <App />,
+    errorElement: <HomeError />,
     children: [
       {
         path: "",
         element: <Coins />,
+        errorElement: <HomeError />,
       },
       {
         path: ":coinId",
         element: <Coin />,
+        errorElement: <CoinError />,
         children: [
           {
             path: "chart",
             element: <Chart />,
+            errorElement: <CoinError />,
           },
           {
             path: "price",
             element: <Price />,
+            errorElement: <CoinError />,
           },
         ],
       },
