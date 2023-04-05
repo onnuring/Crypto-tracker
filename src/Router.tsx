@@ -21,7 +21,7 @@ import CoinError from "./CoinError";
 
 const router = createBrowserRouter([
   {
-    path: "/", // 슬래시 경로를 부모로 생각하고 router를 설정한다
+    path: "/Crypto-tracker", // 슬래시 경로를 부모로 생각하고 router를 설정한다
     element: <App />,
     errorElement: <HomeError />,
     children: [
