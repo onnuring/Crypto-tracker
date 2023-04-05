@@ -60,7 +60,8 @@ interface PriceProps {
 
 function Price() {
   const { tickersData } = useOutletContext<PriceProps>();
-  const priceData = tickersData.quotes.USD;
+  const priceData = tickersData?.quotes.USD;
+
   return (
     <PriceBox>
       <PriceList>
