@@ -43,7 +43,6 @@ const router = createBrowserRouter([
           {
             path: "price",
             element: <Price />,
-            errorElement: <CoinError />,
           },
         ],
       },
