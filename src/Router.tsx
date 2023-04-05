@@ -19,35 +19,40 @@ import CoinError from "./CoinError";
 //   );
 // };
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/", // 슬래시 경로를 부모로 생각하고 router를 설정한다
+      element: <App />,
+      errorElement: <HomeError />,
+      children: [
+        {
+          path: "",
+          element: <Coins />,
+          errorElement: <HomeError />,
+        },
+        {
+          path: ":coinId",
+          element: <Coin />,
+          errorElement: <CoinError />,
+          children: [
+            {
+              path: "chart",
+              element: <Chart />,
+              errorElement: <CoinError />,
+            },
+            {
+              path: "price",
+              element: <Price />,
+            },
+          ],
+        },
+      ],
+    },
+  ],
   {
-    path: "/Crypto-tracker", // 슬래시 경로를 부모로 생각하고 router를 설정한다
-    element: <App />,
-    errorElement: <HomeError />,
-    children: [
-      {
-        path: "",
-        element: <Coins />,
-        errorElement: <HomeError />,
-      },
-      {
-        path: ":coinId",
-        element: <Coin />,
-        errorElement: <CoinError />,
-        children: [
-          {
-            path: "chart",
-            element: <Chart />,
-            errorElement: <CoinError />,
-          },
-          {
-            path: "price",
-            element: <Price />,
-          },
-        ],
-      },
-    ],
-  },
-]);
+    basename: "/Crypto-tracker",
+  }
+);
 
 export default router;

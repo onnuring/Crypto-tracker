@@ -157,8 +157,8 @@ const Coin = () => {
   // const [priceInfo, setPriceInfo] = useState<PriceData>();
 
   //url을 통해서 탭선택에 바로 적용시킬 수 있다
-  const priceMatch = useMatch("/Crypto-tracker/:coinId/price");
-  const chartMatch = useMatch("/Crypto-tracker/:coinId/chart");
+  const priceMatch = useMatch("/:coinId/price");
+  const chartMatch = useMatch("/:coinId/chart");
   console.log(priceMatch);
 
   //useQuery hook 사용
